@@ -9,6 +9,7 @@ const bedInput = document.querySelector("#bed-time");
 const bedtimeResults = document.querySelector("#bedtime-results");
 const wakeResults = document.querySelector("#wake-results");
 const sleepNowButton = document.querySelector("#sleep-now");
+const infoButtons = document.querySelectorAll(".info-button");
 
 const padTime = (value) => String(value).padStart(2, "0");
 
@@ -93,6 +94,45 @@ bedForm.addEventListener("submit", (event) => {
 });
 
 sleepNowButton.addEventListener("click", setCurrentTimeAsBedtime);
+
+infoButtons.forEach((button) => {
+  button.addEventListener("click", (event) => {
+    const currentTip = event.currentTarget.closest(".info-tip");
+    const isOpen = currentTip.classList.contains("is-open");
+
+    document.querySelectorAll(".info-tip.is-open").forEach((tip) => {
+      tip.classList.remove("is-open");
+      tip.querySelector(".info-button").setAttribute("aria-expanded", "false");
+    });
+
+    if (!isOpen) {
+      currentTip.classList.add("is-open");
+      event.currentTarget.setAttribute("aria-expanded", "true");
+    }
+  });
+});
+
+document.addEventListener("click", (event) => {
+  if (event.target.closest(".info-tip")) {
+    return;
+  }
+
+  document.querySelectorAll(".info-tip.is-open").forEach((tip) => {
+    tip.classList.remove("is-open");
+    tip.querySelector(".info-button").setAttribute("aria-expanded", "false");
+  });
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key !== "Escape") {
+    return;
+  }
+
+  document.querySelectorAll(".info-tip.is-open").forEach((tip) => {
+    tip.classList.remove("is-open");
+    tip.querySelector(".info-button").setAttribute("aria-expanded", "false");
+  });
+});
 
 const now = new Date();
 const defaultWakeTime = "07:00";

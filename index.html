@@ -26,7 +26,23 @@
           </div>
 
           <form id="wake-form" class="time-form">
-            <label for="wake-time">Wake-up time</label>
+            <label for="wake-time">
+              Wake-up time
+              <span class="info-tip">
+                <button
+                  class="info-button"
+                  type="button"
+                  aria-label="What wake-up time means"
+                  aria-expanded="false"
+                >
+                  ?
+                </button>
+                <span class="info-flyout" role="tooltip">
+                  The time you want to be fully awake. The app works backward
+                  from this time to find good sleep-cycle bedtimes.
+                </span>
+              </span>
+            </label>
             <div class="input-row">
               <input id="wake-time" name="wake-time" type="time" required />
               <button type="submit">Find Bedtimes</button>
@@ -35,9 +51,41 @@
 
           <div class="results" aria-live="polite">
             <h3>Recommended bedtimes</h3>
-            <div class="comparison-labels" aria-hidden="true">
-              <span>Sleep starts at</span>
-              <span>Get in bed by</span>
+            <div class="comparison-labels">
+              <span>
+                Sleep starts at
+                <span class="info-tip">
+                  <button
+                    class="info-button"
+                    type="button"
+                    aria-label="What sleep starts at means"
+                    aria-expanded="false"
+                  >
+                    ?
+                  </button>
+                  <span class="info-flyout" role="tooltip">
+                    The time your actual sleep would need to begin to complete
+                    this many 90-minute sleep cycles.
+                  </span>
+                </span>
+              </span>
+              <span>
+                Get in bed by
+                <span class="info-tip">
+                  <button
+                    class="info-button"
+                    type="button"
+                    aria-label="What get in bed by means"
+                    aria-expanded="false"
+                  >
+                    ?
+                  </button>
+                  <span class="info-flyout" role="tooltip">
+                    A bedtime that adds about 15 minutes before sleep starts,
+                    giving you time to fall asleep.
+                  </span>
+                </span>
+              </span>
             </div>
             <div id="bedtime-results" class="result-list"></div>
           </div>
@@ -50,7 +98,23 @@
           </div>
 
           <form id="bed-form" class="time-form">
-            <label for="bed-time">Bedtime</label>
+            <label for="bed-time">
+              Bedtime
+              <span class="info-tip">
+                <button
+                  class="info-button"
+                  type="button"
+                  aria-label="What bedtime means"
+                  aria-expanded="false"
+                >
+                  ?
+                </button>
+                <span class="info-flyout" role="tooltip">
+                  The time you plan to get into bed. Wake-up recommendations are
+                  calculated forward from this time.
+                </span>
+              </span>
+            </label>
             <div class="input-row">
               <input id="bed-time" name="bed-time" type="time" required />
               <button type="submit">Find Wake Times</button>
@@ -63,9 +127,41 @@
 
           <div class="results" aria-live="polite">
             <h3>Recommended wake-up times</h3>
-            <div class="comparison-labels" aria-hidden="true">
-              <span>Sleep starts now</span>
-              <span>After 15 min</span>
+            <div class="comparison-labels">
+              <span>
+                Sleep starts now
+                <span class="info-tip">
+                  <button
+                    class="info-button"
+                    type="button"
+                    aria-label="What sleep starts now means"
+                    aria-expanded="false"
+                  >
+                    ?
+                  </button>
+                  <span class="info-flyout" role="tooltip">
+                    Wake-up times if you fell asleep right at the bedtime you
+                    entered.
+                  </span>
+                </span>
+              </span>
+              <span>
+                After 15 min
+                <span class="info-tip">
+                  <button
+                    class="info-button"
+                    type="button"
+                    aria-label="What after 15 minutes means"
+                    aria-expanded="false"
+                  >
+                    ?
+                  </button>
+                  <span class="info-flyout" role="tooltip">
+                    Wake-up times if it takes about 15 minutes to fall asleep
+                    after getting into bed.
+                  </span>
+                </span>
+              </span>
             </div>
             <div id="wake-results" class="comparison-list"></div>
           </div>
