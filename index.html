@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sleep Cycle Calculator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hero" aria-labelledby="app-title">
+        <p class="eyebrow">90-minute sleep cycle planner</p>
+        <h1 id="app-title">Sleep Cycle Calculator</h1>
+        <p class="intro">
+          Find bedtimes and wake-up times that line up with natural sleep cycles.
+          The app also shows how the common 15-minute time to fall asleep changes
+          your schedule.
+        </p>
+      </section>
+
+      <section class="calculator-grid" aria-label="Sleep cycle calculators">
+        <article class="panel">
+          <div class="panel-heading">
+            <h2>Wake Up At</h2>
+            <p>Choose your wake-up time to see when to go to bed.</p>
+          </div>
+
+          <form id="wake-form" class="time-form">
+            <label for="wake-time">Wake-up time</label>
+            <div class="input-row">
+              <input id="wake-time" name="wake-time" type="time" required />
+              <button type="submit">Find Bedtimes</button>
+            </div>
+          </form>
+
+          <div class="results" aria-live="polite">
+            <h3>Recommended bedtimes</h3>
+            <div class="comparison-labels" aria-hidden="true">
+              <span>Sleep starts at</span>
+              <span>Get in bed by</span>
+            </div>
+            <div id="bedtime-results" class="result-list"></div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-heading">
+            <h2>Go To Bed At</h2>
+            <p>Choose a bedtime to see good wake-up times.</p>
+          </div>
+
+          <form id="bed-form" class="time-form">
+            <label for="bed-time">Bedtime</label>
+            <div class="input-row">
+              <input id="bed-time" name="bed-time" type="time" required />
+              <button type="submit">Find Wake Times</button>
+            </div>
+          </form>
+
+          <button id="sleep-now" class="secondary-button" type="button">
+            Sleep Now
+          </button>
+
+          <div class="results" aria-live="polite">
+            <h3>Recommended wake-up times</h3>
+            <div class="comparison-labels" aria-hidden="true">
+              <span>Sleep starts now</span>
+              <span>After 15 min</span>
+            </div>
+            <div id="wake-results" class="comparison-list"></div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
