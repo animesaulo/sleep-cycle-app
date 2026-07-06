@@ -1,0 +1,26 @@
+{
+  "name": "Sleep Cycle Calculator",
+  "short_name": "Sleep Cycle",
+  "description": "A simple sleep cycle calculator for bedtimes and wake-up times.",
+  "icons": [
+    {
+      "src": "assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/icons/icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "theme_color": "#7c3aed",
+  "background_color": "#111827",
+  "display": "standalone"
+}
