@@ -2,6 +2,9 @@
   "name": "Sleep Cycle Calculator",
   "short_name": "Sleep Cycle",
   "description": "An ad-free sleep cycle calculator for bedtimes and wake-up times, with a 15-minute fall-asleep estimate.",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
   "icons": [
     {
       "src": "assets/icons/icon-192.png",

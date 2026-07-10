@@ -13,6 +13,7 @@ This project is meant to be a clean alternative to online sleep calculator sites
 - Start from the current time with the Sleep Now button
 - Responsive layout for phones, tablets, and desktops
 - No ads, trackers, accounts, or external dependencies
+- Installable from supported browsers as a Progressive Web App
 
 ## How it works
 
@@ -27,4 +28,23 @@ These times are estimates, not medical advice. Your own sleep needs may vary.
 
 ## Run locally
 
-Open `index.html` in a web browser. No build tools or dependencies are required.
+For a quick preview, open `index.html` in a web browser. No build tools or dependencies are required.
+
+To test installability and offline support, serve the folder from a local web server:
+
+```bash
+python3 -m http.server 4173
+```
+
+Then open `http://127.0.0.1:4173/`.
+
+## Install as an app
+
+This project includes a web manifest and service worker so supported browsers can install it as a Progressive Web App.
+
+- Chrome or Edge: use the install icon in the address bar or the browser menu.
+- Android Chrome: choose Install app or Add to Home screen.
+- iPhone or iPad Safari: use Share, then Add to Home Screen.
+- Desktop Safari support depends on your macOS and Safari version.
+
+Install prompts usually require HTTPS when the app is hosted online. Localhost works for testing.
