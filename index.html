@@ -3,6 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="An ad-free sleep cycle calculator that estimates bedtimes and wake-up times using 90-minute cycles and a 15-minute fall-asleep buffer."
+    />
     <meta name="theme-color" content="#7c3aed" />
     <title>Sleep Cycle Calculator</title>
     <link rel="icon" href="assets/icons/favicon.ico" sizes="any" />
@@ -19,9 +23,9 @@
         <p class="eyebrow">90-minute sleep cycle planner</p>
         <h1 id="app-title">Sleep Cycle Calculator</h1>
         <p class="intro">
-          Find bedtimes and wake-up times that line up with natural sleep cycles.
-          The app also shows how the common 15-minute time to fall asleep changes
-          your schedule.
+          An ad-free alternative to cluttered sleep calculator sites and apps.
+          Find bedtimes and wake-up times using 90-minute sleep cycles, with a
+          built-in 15-minute estimate for the time it often takes to fall asleep.
         </p>
       </section>
 
@@ -30,7 +34,10 @@
           <div class="panel-heading">
             <div class="panel-copy">
               <h2>Wake Up At</h2>
-              <p>Choose your wake-up time to see when to go to bed.</p>
+              <p>
+                Choose your wake-up time to see when to go to bed, including a
+                15-minute buffer for falling asleep.
+              </p>
             </div>
           </div>
 
@@ -104,7 +111,10 @@
           <div class="panel-heading">
             <div class="panel-copy">
               <h2>Go To Bed At</h2>
-              <p>Choose a bedtime to see good wake-up times.</p>
+              <p>
+                Choose a bedtime to compare wake-up times if you fall asleep
+                right away or after about 15 minutes.
+              </p>
             </div>
           </div>
 
@@ -121,8 +131,8 @@
                   ?
                 </button>
                 <span class="info-flyout" role="tooltip">
-                  The time you plan to get into bed. Wake-up recommendations are
-                  calculated forward from this time.
+                  The time you plan to get into bed. The app compares this
+                  against an estimate where sleep starts about 15 minutes later.
                 </span>
               </span>
             </label>
@@ -169,7 +179,7 @@
                   </button>
                   <span class="info-flyout" role="tooltip">
                     Wake-up times if it takes about 15 minutes to fall asleep
-                    after getting into bed.
+                    after getting into bed, which is a common average estimate.
                   </span>
                 </span>
               </span>
