@@ -1,4 +1,4 @@
-const CACHE_NAME = "sleep-cycle-app-v1";
+const CACHE_NAME = "sleep-cycle-app-v2";
 const APP_ASSETS = [
   "./",
   "./index.html",

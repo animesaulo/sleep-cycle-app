@@ -10,6 +10,12 @@ const bedtimeResults = document.querySelector("#bedtime-results");
 const wakeResults = document.querySelector("#wake-results");
 const sleepNowButton = document.querySelector("#sleep-now");
 const infoButtons = document.querySelectorAll(".info-button");
+const installCard = document.querySelector("#install-card");
+const installAction = document.querySelector("#install-action");
+const installMessage = document.querySelector("#install-message");
+const installHelp = document.querySelector("#install-help");
+
+let deferredInstallPrompt = null;
 
 const padTime = (value) => String(value).padStart(2, "0");
 
@@ -83,6 +89,59 @@ function setCurrentTimeAsBedtime() {
   renderWakeTimes(currentTime);
 }
 
+function isAppInstalled() {
+  return (
+    window.matchMedia("(display-mode: standalone)").matches ||
+    window.navigator.standalone === true
+  );
+}
+
+function showInstallCard({ buttonText, helpText, message }) {
+  if (!installCard || isAppInstalled()) {
+    return;
+  }
+
+  installAction.textContent = buttonText;
+  installMessage.textContent = message;
+  installHelp.textContent = helpText;
+  installHelp.hidden = true;
+  installCard.hidden = false;
+}
+
+function setupSafariInstallHint() {
+  const userAgent = window.navigator.userAgent;
+  const isIos = /iphone|ipad|ipod/i.test(userAgent);
+  const isSafari = /safari/i.test(userAgent) && !/chrome|chromium|crios|fxios|edg/i.test(userAgent);
+
+  if (!isSafari && !isIos) {
+    return;
+  }
+
+  if (isIos) {
+    if (!isSafari) {
+      showInstallCard({
+        buttonText: "Open in Safari",
+        helpText: "Copy this page address, open it in Safari, tap Share, then choose Add to Home Screen.",
+        message: "On iPhone and iPad, browser app installs are handled through Safari.",
+      });
+      return;
+    }
+
+    showInstallCard({
+      buttonText: "Add to Home Screen",
+      helpText: "Tap Share, then choose Add to Home Screen.",
+      message: "Install the app from Safari so it opens from your Home Screen.",
+    });
+    return;
+  }
+
+  showInstallCard({
+    buttonText: "Add to Dock",
+    helpText: "In Safari, open File, then choose Add to Dock.",
+    message: "Add this app to your Dock for a standalone app-like window.",
+  });
+}
+
 wakeForm.addEventListener("submit", (event) => {
   event.preventDefault();
   renderBedtimes(wakeInput.value);
@@ -94,6 +153,37 @@ bedForm.addEventListener("submit", (event) => {
 });
 
 sleepNowButton.addEventListener("click", setCurrentTimeAsBedtime);
+
+window.addEventListener("beforeinstallprompt", (event) => {
+  event.preventDefault();
+  deferredInstallPrompt = event;
+
+  showInstallCard({
+    buttonText: "Install App",
+    helpText: "Your browser will open an install prompt.",
+    message: "Install the app for quicker access and offline use.",
+  });
+});
+
+window.addEventListener("appinstalled", () => {
+  deferredInstallPrompt = null;
+  installCard.hidden = true;
+});
+
+installAction.addEventListener("click", async () => {
+  if (deferredInstallPrompt) {
+    deferredInstallPrompt.prompt();
+    const choice = await deferredInstallPrompt.userChoice;
+    deferredInstallPrompt = null;
+
+    if (choice.outcome === "accepted") {
+      installCard.hidden = true;
+    }
+    return;
+  }
+
+  installHelp.hidden = !installHelp.hidden;
+});
 
 infoButtons.forEach((button) => {
   button.addEventListener("click", (event) => {
@@ -151,3 +241,5 @@ if ("serviceWorker" in navigator) {
     });
   });
 }
+
+setupSafariInstallHint();

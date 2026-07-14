@@ -46,5 +46,6 @@ This project includes a web manifest and service worker so supported browsers ca
 - Android Chrome: choose Install app or Add to Home screen.
 - iPhone or iPad Safari: use Share, then Add to Home Screen.
 - Desktop Safari support depends on your macOS and Safari version.
+- The page shows browser-specific install help only when it is opened as a website, not when it is already running as an installed app.
 
 Install prompts usually require HTTPS when the app is hosted online. Localhost works for testing.

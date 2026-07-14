@@ -115,6 +115,52 @@ h1 {
   line-height: 1.7;
 }
 
+.install-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 24px;
+  border: 1px solid rgba(124, 58, 237, 0.28);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.84);
+  box-shadow: 0 12px 30px rgba(24, 28, 42, 0.12);
+  padding: 18px;
+}
+
+.install-card[hidden] {
+  display: none;
+}
+
+.install-card h2 {
+  margin-bottom: 6px;
+  color: #24123d;
+  font-size: 1rem;
+}
+
+.install-card p {
+  margin-bottom: 0;
+  color: #4b5563;
+  line-height: 1.5;
+}
+
+.install-help {
+  margin-top: 8px;
+  color: #312e81;
+  font-weight: 700;
+}
+
+.install-card button {
+  min-width: 148px;
+  padding: 0 18px;
+  background: #7c3aed;
+  white-space: nowrap;
+}
+
+.install-card button:hover {
+  background: #5b21b6;
+}
+
 .calculator-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -443,6 +489,14 @@ input[type="time"] {
 }
 
 @media (max-width: 520px) {
+  .install-card {
+    grid-template-columns: 1fr;
+  }
+
+  .install-card button {
+    width: 100%;
+  }
+
   .input-row,
   .comparison-labels,
   .comparison-card {
