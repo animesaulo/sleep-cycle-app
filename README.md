@@ -4,6 +4,20 @@ An ad-free, beginner-friendly sleep cycle calculator built with plain HTML, CSS,
 
 This project is meant to be a clean alternative to online sleep calculator sites or apps that may include ads, distractions, or unnecessary clutter.
 
+## Live Demo
+
+https://animesaulo.github.io/sleep-cycle-app/
+
+## Screenshots
+
+### Desktop Screenshot
+
+![Desktop screenshot of the Sleep Cycle App](assets/screenshots/homepage-desktop.png)
+
+### Mobile Screenshot
+
+![Mobile screenshot of the Sleep Cycle App](assets/screenshots/homepage-mobile.png)
+
 ## Features
 
 - Calculate recommended bedtimes from a wake-up time
