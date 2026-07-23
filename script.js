@@ -36,11 +36,17 @@ function formatTime(totalMinutes) {
   }).format(date);
 }
 
+function formatSleepDuration(totalMinutes) {
+  const hours = totalMinutes / 60;
+  return `${Number.isInteger(hours) ? hours : hours.toFixed(1)} hours`;
+}
+
 function renderBedtimes(wakeTime) {
   const wakeMinutes = timeToMinutes(wakeTime);
 
   bedtimeResults.innerHTML = RECOMMENDED_CYCLES.map((cycles) => {
     const sleepDuration = cycles * CYCLE_MINUTES;
+    const cycleLabel = `${cycles} cycles · ${formatSleepDuration(sleepDuration)}`;
     const sleepStartTime = wakeMinutes - sleepDuration;
     const bedtimeWithBuffer = sleepStartTime - FALL_ASLEEP_MINUTES;
 
@@ -48,11 +54,11 @@ function renderBedtimes(wakeTime) {
       <div class="comparison-card">
         <div class="comparison-cell" data-label="Sleep starts at">
           <div class="comparison-time">${formatTime(sleepStartTime)}</div>
-          <div class="comparison-cycle">${cycles} cycles</div>
+          <div class="comparison-cycle">${cycleLabel}</div>
         </div>
         <div class="comparison-cell" data-label="Get in bed by">
           <div class="comparison-time">${formatTime(bedtimeWithBuffer)}</div>
-          <div class="comparison-cycle">${cycles} cycles</div>
+          <div class="comparison-cycle">${cycleLabel}</div>
         </div>
       </div>
     `;
@@ -64,6 +70,7 @@ function renderWakeTimes(bedTime) {
 
   wakeResults.innerHTML = RECOMMENDED_CYCLES.map((cycles) => {
     const sleepDuration = cycles * CYCLE_MINUTES;
+    const cycleLabel = `${cycles} cycles · ${formatSleepDuration(sleepDuration)}`;
     const wakeWithoutBuffer = bedMinutes + sleepDuration;
     const wakeWithBuffer = bedMinutes + FALL_ASLEEP_MINUTES + sleepDuration;
 
@@ -71,11 +78,11 @@ function renderWakeTimes(bedTime) {
       <div class="comparison-card">
         <div class="comparison-cell" data-label="Sleep starts now">
           <div class="comparison-time">${formatTime(wakeWithoutBuffer)}</div>
-          <div class="comparison-cycle">${cycles} cycles</div>
+          <div class="comparison-cycle">${cycleLabel}</div>
         </div>
         <div class="comparison-cell" data-label="After 15 min">
           <div class="comparison-time">${formatTime(wakeWithBuffer)}</div>
-          <div class="comparison-cycle">${cycles} cycles</div>
+          <div class="comparison-cycle">${cycleLabel}</div>
         </div>
       </div>
     `;

@@ -24,6 +24,7 @@ https://animesaulo.github.io/sleep-cycle-app/
 - Calculate recommended wake-up times from a bedtime
 - Compare bedtime and wake-up results with and without the 15-minute fall-asleep estimate
 - Use 90-minute sleep cycles
+- Show the total sleep hours for each cycle option
 - Start from the current time with the Sleep Now button
 - Responsive layout for phones, tablets, and desktops
 - No ads, trackers, accounts, or external dependencies
